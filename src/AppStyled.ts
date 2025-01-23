@@ -13,3 +13,8 @@ export const Title = styled.div`
     margin-bottom: 18px;
     font-weight: 700;
 `
+
+export const Shell = styled.div`
+    display: flex;
+    
+`
