@@ -1,8 +1,7 @@
-import { ButtonSelect, IconSelect, Wrapper } from "./styled";
+import { ButtonSelect, ButtonTitle, IconSelect, Wrapper } from "./styled";
 import iconSelect from "./assets/chevron-top.svg";
 import SelectInputList from "./SelectInputList/SelectInputList";
 import React, { useState } from "react";
-import { TitleList } from "./SelectInputList/styled";
 
 const SelectFilter = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,8 +9,8 @@ const SelectFilter = () => {
   return (
     <Wrapper>
       <ButtonSelect onClick={() => setIsOpen(!isOpen)}>
-        {!isOpen && <TitleList isTitle={isTitle}>{isTitle}</TitleList>}
-        <IconSelect src={iconSelect} />
+        {!isOpen && <ButtonTitle>{isTitle}</ButtonTitle>}
+        <IconSelect src={iconSelect} isOpen={isOpen} />
       </ButtonSelect>
       {isOpen && (
         <SelectInputList

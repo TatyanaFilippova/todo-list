@@ -10,16 +10,28 @@ export const ButtonSelect = styled.button`
   margin-left: 16px;
   position: relative;
   display: flex;
-
   align-items: center;
 `;
-export const IconSelect = styled.img`
+
+interface IconSelectProps {
+  isOpen: boolean;
+}
+
+export const IconSelect = styled.img<IconSelectProps>`
   width: 6px;
   height: 3px;
   position: absolute;
-  right: 10px;
+  right: 4px;
+
+  transform: ${(props) => props.isOpen && "rotate(180deg)"};
 `;
 
 export const Wrapper = styled.div`
   position: relative;
+`;
+
+export const ButtonTitle = styled.div`
+  font-size: 16px;
+  color: white;
+  padding: 10px 43px 10px 6px;
 `;
