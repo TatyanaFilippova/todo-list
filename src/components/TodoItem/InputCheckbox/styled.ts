@@ -10,10 +10,12 @@ export const Checkbox = styled.input`
   appearance: none;
   position: relative;
   cursor: pointer;
-  background: #6c63ff;
+  background: white;
   box-shadow: inset 0 0 5px rgb(0 0 0 / 0.2);
 
-  transition: 500ms;
+  &:checked {
+    background-color: #6c63ff;
+  }
 
   &:after {
     content: "\\2714";
@@ -23,7 +25,7 @@ export const Checkbox = styled.input`
     width: 0px;
     height: 0px;
     font-size: 20px;
-    transition: 500ms;
+    transition: 800ms;
     overflow: hidden;
     color: white;
   }

@@ -13,7 +13,18 @@ function App() {
         <Search />
         <SelectFilter />
       </Shell>
-      <TodoItem />
+      <TodoItem
+        value="Note #1"
+        onEdit={() => {}}
+        onDelete={() => {}}
+        isChecked={true}
+      />
+      <TodoItem
+        value="Note #2"
+        onEdit={() => {}}
+        onDelete={() => {}}
+        isChecked={false}
+      />
     </Wrapper>
   );
 }
