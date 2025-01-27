@@ -28,7 +28,17 @@ function App() {
         <TodoItem
           key={item.value}
           value={item.value}
-          onEdit={() => {}}
+          onEdit={() => {
+            const _list = list.map((el) => {
+              return {
+                value: el.value,
+                isChecked:
+                  el.value === item.value ? !el.isChecked : el.isChecked,
+              };
+            });
+
+            setList(_list);
+          }}
           onDelete={() => {
             const _list = list.filter((el) => item.value !== el.value);
             setList(_list);
