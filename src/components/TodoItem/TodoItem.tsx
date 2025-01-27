@@ -14,7 +14,7 @@ const TodoItem = ({ value, onEdit, onDelete, isChecked }: TodoItemProps) => {
   return (
     <Wrapper>
       <InputCheckbox isChecked={isChecked} />
-      <Title>{value}</Title>
+      <Title isChecked={isChecked}>{value}</Title>
       <IconEdit src={iconEdit} onClick={() => onEdit()} />
       <IconDelete src={iconDelete} onClick={() => onDelete()} />
     </Wrapper>

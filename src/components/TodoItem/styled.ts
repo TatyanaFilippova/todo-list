@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
   margin-top: 30px;
@@ -10,9 +10,19 @@ export const Wrapper = styled.div`
   position: relative;
 `;
 
-export const Title = styled.div`
+interface TitleProps {
+  isChecked: boolean;
+}
+
+export const Title = styled.div<TitleProps>`
   font-size: 20px;
   padding-left: 18px;
+  ${(props) =>
+    props.isChecked &&
+    css`
+      text-decoration: line-through;
+      color: #25252580;
+    `}
 `;
 
 export const IconEdit = styled.img`
