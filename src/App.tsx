@@ -16,6 +16,7 @@ interface TodoItem {
 
 function App() {
   const [list, setList] = useState<TodoItem[]>(TodoItemArray);
+
   return (
     <Wrapper>
       <Title>TODO LIST</Title>
@@ -28,7 +29,10 @@ function App() {
           key={item.value}
           value={item.value}
           onEdit={() => {}}
-          onDelete={() => {}}
+          onDelete={() => {
+            const _list = list.filter((el) => item.value !== el.value);
+            setList(_list);
+          }}
           isChecked={item.isChecked}
         />
       ))}

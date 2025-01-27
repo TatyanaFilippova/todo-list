@@ -2,6 +2,7 @@ import InputCheckbox from "./InputCheckbox/InputCheckbox";
 import { IconDelete, IconEdit, Title, Wrapper } from "./styled";
 import iconEdit from "./assets/edit.svg";
 import iconDelete from "./assets/delete.svg";
+import { useState } from "react";
 
 interface TodoItemProps {
   value: string;
