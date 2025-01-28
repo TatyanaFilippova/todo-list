@@ -3,6 +3,8 @@ import { Wrapper, Title, Shell } from "./AppStyled";
 import Search from "./components/Search/Search";
 import SelectFilter from "./components/SelectFilter/SelectFilter";
 import TodoItem from "./components/TodoItem/TodoItem";
+import ButtonAdd from "./components/ButtonAdd/ButtonAdd";
+import ModalAddTodo from "./components/ModalAddTodo/ModalAddTodo";
 
 const TodoItemArray = [
   { value: "Note #1", isChecked: true },
@@ -16,6 +18,7 @@ interface TodoItem {
 
 function App() {
   const [list, setList] = useState<TodoItem[]>(TodoItemArray);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Wrapper>
@@ -28,7 +31,13 @@ function App() {
         <TodoItem
           key={item.value}
           value={item.value}
-          onEdit={() => {
+          onEdit={() => {}}
+          onDelete={() => {
+            const _list = list.filter((el) => item.value !== el.value);
+            setList(_list);
+          }}
+          isChecked={item.isChecked}
+          onChecked={() => {
             const _list = list.map((el) => {
               return {
                 value: el.value,
@@ -39,13 +48,10 @@ function App() {
 
             setList(_list);
           }}
-          onDelete={() => {
-            const _list = list.filter((el) => item.value !== el.value);
-            setList(_list);
-          }}
-          isChecked={item.isChecked}
         />
       ))}
+      <ButtonAdd setIsOpen={setIsOpen} isOpen={isOpen} />
+      <ModalAddTodo isOpen={isOpen} setIsOpen={setIsOpen} />
     </Wrapper>
   );
 }
