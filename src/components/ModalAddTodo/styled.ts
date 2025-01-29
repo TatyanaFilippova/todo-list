@@ -40,3 +40,32 @@ export const InputSearch = styled.input`
     color: #c3c1e5;
   }
 `;
+
+export const ButtonCancel = styled.button`
+  width: 110px;
+  height: 38px;
+  color: #6c63ff;
+  background-color: #fff;
+  border: 1px solid #6c63ff;
+  border-radius: 5px;
+  font-size: 18px;
+  margin-top: 108px;
+  margin-left: 10px;
+`;
+
+export const ButtonApply = styled.button`
+  width: 98px;
+  height: 38px;
+  border-radius: 5px;
+  font-size: 18px;
+  margin-top: 108px;
+  background-color: #6c63ff;
+  color: white;
+  margin-right: 10px;
+`;
+
+export const Shell = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;

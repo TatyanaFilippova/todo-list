@@ -11,7 +11,7 @@ const TodoItemArray = [
   { value: "Note #2", isChecked: false },
 ];
 
-interface TodoItem {
+export interface TodoItem {
   value: string;
   isChecked: boolean;
 }
@@ -19,6 +19,12 @@ interface TodoItem {
 function App() {
   const [list, setList] = useState<TodoItem[]>(TodoItemArray);
   const [isOpen, setIsOpen] = useState(false);
+
+  const addTodo = (value: TodoItem) => {
+    const _list = [...list, value];
+    setList(_list);
+    setIsOpen(false);
+  };
 
   return (
     <Wrapper>
@@ -51,7 +57,7 @@ function App() {
         />
       ))}
       <ButtonAdd setIsOpen={setIsOpen} isOpen={isOpen} />
-      <ModalAddTodo isOpen={isOpen} setIsOpen={setIsOpen} />
+      <ModalAddTodo isOpen={isOpen} setIsOpen={setIsOpen} addTodo={addTodo} />
     </Wrapper>
   );
 }
