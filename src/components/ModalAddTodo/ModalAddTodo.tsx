@@ -10,6 +10,7 @@ import {
 import Modal from "react-modal";
 import { useForm } from "react-hook-form";
 import { TodoItem } from "../../App";
+import { useEffect } from "react";
 
 const ModalM = Modal as any;
 
@@ -38,6 +39,9 @@ const ModalAddTodo = ({ isOpen, setIsOpen, addTodo }: ModalProps) => {
   const form = useForm<FormValues>();
   const field = form.register("fieldName");
   const submit = form.handleSubmit(ownSubmit);
+  useEffect(() => {
+    form.reset();
+  }, [isOpen]);
   return (
     <ModalM
       isOpen={isOpen}
