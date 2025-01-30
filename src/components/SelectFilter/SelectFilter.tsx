@@ -3,9 +3,14 @@ import iconSelect from "./assets/chevron-top.svg";
 import SelectInputList from "./SelectInputList/SelectInputList";
 import React, { useState } from "react";
 
-const SelectFilter = () => {
+interface SelectFilterProps {
+  isTitle: string;
+  setIsTitle: (isTitle: string) => void;
+}
+
+const SelectFilter = ({ isTitle, setIsTitle }: SelectFilterProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isTitle, setIsTitle] = useState("All");
+
   return (
     <Wrapper>
       <ButtonSelect onClick={() => setIsOpen(!isOpen)}>

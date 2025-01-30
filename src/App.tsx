@@ -25,8 +25,14 @@ function App() {
     setList(_list);
     setIsOpen(false);
   };
-  const filteredList = list.filter((value) => {
-    return value.value.toLowerCase().includes(filterText.toLowerCase());
+
+  const [isTitle, setIsTitle] = useState("All");
+
+  const filteredList = list.filter((item) => {
+    if (item.isChecked && isTitle === "Incomplete") return false;
+    if (!item.isChecked && isTitle === "Complete") return false;
+
+    return item.value.toLowerCase().includes(filterText.toLowerCase());
   });
 
   return (
@@ -34,7 +40,7 @@ function App() {
       <Title>TODO LIST</Title>
       <Shell>
         <Search filterText={filterText} setFilterText={setFilterText} />
-        <SelectFilter />
+        <SelectFilter isTitle={isTitle} setIsTitle={setIsTitle} />
       </Shell>
       {filteredList.map((item) => (
         <TodoItem
