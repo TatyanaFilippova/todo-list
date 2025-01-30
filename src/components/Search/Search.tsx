@@ -1,14 +1,22 @@
-import {InputSearch,IconSearch,Wrapper} from "./styled";
-import icon from './assets/icon.svg'
+import { InputSearch, IconSearch, Wrapper } from "./styled";
+import icon from "./assets/icon.svg";
 
-
-const Search = () =>{
-    return(
-        <Wrapper>
-            <InputSearch placeholder="Search not..."/>
-            <IconSearch src={icon}/>
-        </Wrapper>
-    )
+interface SearchProps {
+  filterText: string;
+  setFilterText: (text: string) => void;
 }
 
-export default Search
+const Search = ({ filterText, setFilterText }: SearchProps) => {
+  return (
+    <Wrapper>
+      <InputSearch
+        placeholder="Search not..."
+        value={filterText}
+        onChange={(e) => setFilterText(e.target.value)}
+      />
+      <IconSearch src={icon} />
+    </Wrapper>
+  );
+};
+
+export default Search;

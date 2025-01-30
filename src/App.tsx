@@ -19,21 +19,24 @@ export interface TodoItem {
 function App() {
   const [list, setList] = useState<TodoItem[]>(TodoItemArray);
   const [isOpen, setIsOpen] = useState(false);
-
+  const [filterText, setFilterText] = useState<string>("");
   const addTodo = (value: TodoItem) => {
     const _list = [...list, value];
     setList(_list);
     setIsOpen(false);
   };
+  const filteredList = list.filter((value) => {
+    return value.value.toLowerCase().includes(filterText.toLowerCase());
+  });
 
   return (
     <Wrapper>
       <Title>TODO LIST</Title>
       <Shell>
-        <Search />
+        <Search filterText={filterText} setFilterText={setFilterText} />
         <SelectFilter />
       </Shell>
-      {list.map((item) => (
+      {filteredList.map((item) => (
         <TodoItem
           key={item.value}
           value={item.value}
